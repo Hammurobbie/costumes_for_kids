@@ -20,7 +20,7 @@ const Sketch = () => {
           strokeWidth={5}
           canvasColor={"#feeca9"}
           strokeColor={"#f58094"}
-          height="65vh"
+          height="60vh"
         />
       </div>
       <div className="flex w-full justify-between">
