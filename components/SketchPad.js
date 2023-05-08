@@ -8,7 +8,7 @@ const canvasStyles = {
   height: "100%",
 };
 
-const Sketch = () => {
+const SketchPad = () => {
   const canvas = useRef();
   return (
     <div className="w-full flex flex-col justify-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
@@ -53,4 +53,4 @@ const Sketch = () => {
   );
 };
 
-export default Sketch;
+export default SketchPad;

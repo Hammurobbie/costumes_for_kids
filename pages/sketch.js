@@ -1,19 +1,19 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-import Dashboard from "../components/Dashboard";
+import SketchPad from "../components/SketchPad";
 
-export default function Home() {
+export default function Sketch() {
   return (
     <>
       <Head>
-        <title>Home</title>
-        <meta name="Home" content="Landing page" />
+        <title>Sketch</title>
+        <meta name="Sketch" content="Draw out your idea" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Dashboard />
+        <SketchPad />
       </main>
     </>
   );
