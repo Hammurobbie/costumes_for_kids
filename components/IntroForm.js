@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 const IntroForm = () => {
   const { globalUser, setGlobalUser } = useContext(UserContext);
   const initUser = {
-    name: globalUser?.userName || "",
+    name: globalUser?.name || "",
     age: globalUser?.age || "",
     favColor: globalUser?.favColor || "",
     shortDesc: globalUser?.shortDesc || "",
@@ -27,13 +27,13 @@ const IntroForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("userName", user?.name);
+    push("/sketch");
+    localStorage.setItem("name", user?.name);
     localStorage.setItem("age", user?.age);
     localStorage.setItem("favColor", user?.favColor);
     localStorage.setItem("shortDesc", user?.shortDesc);
     setGlobalUser(user);
     setUser(initUser);
-    push("/sketch");
   };
 
   return (
