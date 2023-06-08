@@ -27,7 +27,7 @@ const IntroForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    push("/sketch");
+    push("/dashboard");
     localStorage.setItem("name", user?.name);
     localStorage.setItem("age", user?.age);
     localStorage.setItem("favColor", user?.favColor);
@@ -38,7 +38,9 @@ const IntroForm = () => {
 
   return (
     <div className="w-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-      <h2 className="text-2xl font-bold text-dark">Tell me about yourself</h2>
+      <h2 className="text-2xl text-center font-bold text-dark">
+        Nice to meet you!
+      </h2>
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-3">
@@ -49,7 +51,7 @@ const IntroForm = () => {
               What's your name?
             </label>
             <input
-              className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-600"
+              className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-tangerine-alt"
               id="first_name"
               name="name"
               type="text"
@@ -66,7 +68,7 @@ const IntroForm = () => {
               How old are you?
             </label>
             <input
-              className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-600"
+              className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-tangerine-alt"
               id="age"
               type="number"
               name="age"
@@ -83,7 +85,7 @@ const IntroForm = () => {
               What's your favorite color?
             </label>
             <input
-              className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-600"
+              className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-tangerine-alt"
               id="fav_color"
               type="text"
               name="favColor"
@@ -100,7 +102,7 @@ const IntroForm = () => {
               How would you best describe yourself in just a few words?
             </label>
             <input
-              className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 leading-tight focus:outline-none focus:bg-gray-600"
+              className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 leading-tight focus:outline-none focus:bg-tangerine-alt"
               id="short_desc"
               type="text"
               name="shortDesc"
@@ -113,7 +115,7 @@ const IntroForm = () => {
         <div className="md:flex md:items-center">
           <div className="w-full flex justify-center">
             <button
-              className="shadow bg-lime hover:bg-purple-400 focus:shadow-outline focus:outline-none text-dark font-bold py-2 px-4 border-2 shadow-sm border-dark"
+              className="bg-lime hover:bg-lime-alt focus:bg-lime-alt font-bold py-2 px-4 border-2 shadow-sm border-dark"
               type="submit"
             >
               Submit

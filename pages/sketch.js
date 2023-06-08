@@ -1,9 +1,10 @@
+import react, { useState } from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-
 import SketchPad from "../components/SketchPad";
+import ColorPalette from "../components/ColorPalette";
 
 export default function Sketch() {
+  const [curStrokeColor, setCurStrokeColor] = useState("");
   return (
     <>
       <Head>
@@ -12,8 +13,11 @@ export default function Sketch() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <SketchPad />
+      <main className="page_container">
+        <div className="mb-5">
+          <SketchPad curStrokeColor={curStrokeColor} />
+        </div>
+        <ColorPalette setCurStrokeColor={setCurStrokeColor} />
       </main>
     </>
   );

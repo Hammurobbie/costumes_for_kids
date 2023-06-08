@@ -1,12 +1,21 @@
 import React from "react";
+import Head from "next/head";
 
 import IntroForm from "../components/IntroForm";
 
 const Introduction = () => {
   return (
-    <div className="w-full p-4 py-5">
-      <IntroForm />
-    </div>
+    <>
+      <Head>
+        <title>Introduction</title>
+        <meta name="Introduction" content="Tell me about yourself" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className="w-full p-4 py-5">
+        <IntroForm />
+      </main>
+    </>
   );
 };
 
