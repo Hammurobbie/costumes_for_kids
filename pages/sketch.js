@@ -14,10 +14,12 @@ export default function Sketch() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="page_container">
-        <div className="mb-5">
-          <SketchPad curStrokeColor={curStrokeColor} />
-        </div>
-        <ColorPalette setCurStrokeColor={setCurStrokeColor} />
+        <section>
+          <div className="mb-5">
+            <SketchPad curStrokeColor={curStrokeColor} />
+          </div>
+          <ColorPalette setCurStrokeColor={setCurStrokeColor} />
+        </section>
       </main>
     </>
   );

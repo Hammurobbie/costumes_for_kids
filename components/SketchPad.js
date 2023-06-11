@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
+import BackButton from "./BackButton";
 
 const canvasStyles = {
   border: "none",
@@ -12,10 +13,9 @@ const SketchPad = ({ curStrokeColor }) => {
   console.log(curStrokeColor);
   const canvas = useRef();
   return (
-    <div className="w-full flex flex-col justify-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-      <h2 className="text-2xl font-bold text-dark text-center">
-        Let's Draw 🎨
-      </h2>
+    <div className="relative w-full flex flex-col justify-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
+      <h1 className="text-2xl font-bold text-dark text-center">Sketchpad 🎨</h1>
+      <BackButton />
       <div className="h-full my-4 border-dark border-2 shadow-dark shadow-sm">
         <ReactSketchCanvas
           ref={canvas}

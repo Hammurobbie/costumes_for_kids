@@ -38,9 +38,9 @@ const IntroForm = () => {
 
   return (
     <div className="w-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-      <h2 className="text-2xl text-center font-bold text-dark">
+      <h1 className="text-2xl text-center font-bold text-dark">
         Nice to meet you!
-      </h2>
+      </h1>
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-3">
