@@ -7,13 +7,14 @@ import back_arrow from "../img/arrow-drawing.png";
 const BackButton = () => {
   const { back } = useRouter();
   return (
-    <button className="absolute left-6 top-4 w-auto py-0 px-1 shadow-sm hover:bg-tangerine-alt focus:bg-tangerine-alt">
+    <button className="absolute left-4 top-[22px] w-auto py-0 px-1 shadow-sm rounded-lg hover:bg-tangerine-alt focus:bg-tangerine-alt">
       <Image
-        onClick={back}
+        onClick={() => back()}
         src={back_arrow}
         height="auto"
-        width={40}
+        width={25}
         alt="navigate_back"
+        className="-scale-y-100"
       />
     </button>
   );

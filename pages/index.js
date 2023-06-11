@@ -26,7 +26,7 @@ export default function Landing() {
             <button
               className="hover:bg-salmon focus:bg-salmon disabled:hover:bg-gray-200 disabled:active:transform-none disabled:active:shadow-sm disabled:cursor-not-allowed"
               onClick={() => push("/dashboard")}
-              disabled={!globalUser?.name}
+              disabled={!globalUser?.name ? true : false}
             >
               login
             </button>

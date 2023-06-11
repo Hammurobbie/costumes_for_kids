@@ -25,9 +25,9 @@ export default function Dashboard() {
       <main className="page_container">
         <section className="w-full h-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
           <div className="flex items-center mb-10">
-            <h1 className="w-5/6">{`What's good, ${
+            <h1 className="w-5/6">{`Hey, ${
               globalUser?.name?.split(" ")[0]
-            }?`}</h1>
+            } 👋`}</h1>
             <button
               className="w-32 text-sm py-1 bg-salmon-alt hover:bg-purple-alt focus:bg-purple-alt"
               onClick={handleLogOut}

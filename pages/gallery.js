@@ -42,7 +42,7 @@ export default function Gallery() {
       </Head>
       <main className="page_container">
         <section className="relative w-full h-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-          <h1 className="mb-6">Photo Album 📷</h1>
+          <h1 className="mb-6 ml-7 sm:ml-0">Photo Album 📷</h1>
           <BackButton />
           <div className="flex flex-col h-full w-full px-3">
             <div className="h-1/2 mb-3.5 border-dark border-4 shadow-dark shadow-sm">
