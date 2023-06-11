@@ -48,7 +48,7 @@ const IntroForm = () => {
               className="block uppercase tracking-wide text-dark text-xs font-bold mb-2"
               htmlFor="first_name"
             >
-              What's your name?
+              {"What's your name?"}
             </label>
             <input
               className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-tangerine-alt"
@@ -82,7 +82,7 @@ const IntroForm = () => {
               className="block uppercase tracking-wide text-dark text-xs font-bold mb-2"
               htmlFor="fav_color"
             >
-              What's your favorite color?
+              {"What's your favorite color?"}
             </label>
             <input
               className="appearance-none block w-full bg-tangerine text-dark border-2 shadow-sm border-dark py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-tangerine-alt"

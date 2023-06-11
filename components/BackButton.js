@@ -11,7 +11,7 @@ const BackButton = () => {
       <Image
         onClick={back}
         src={back_arrow}
-        height={40}
+        height="auto"
         width={40}
         alt="navigate_back"
       />

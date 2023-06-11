@@ -36,7 +36,7 @@ export default function Dashboard() {
             </button>
           </div>
           <div className="flex h-1/2 flex-col justify-around items-center">
-            <h2>Let's get those ideas out!</h2>
+            <h2>{"Let's get those ideas out!"}</h2>
             <button
               className="w-56 hover:bg-tangerine-alt focus:bg-tangerine-alt"
               onClick={() => push("/sketch")}
