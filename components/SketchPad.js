@@ -9,7 +9,7 @@ const canvasStyles = {
   height: "100%",
 };
 
-const SketchPad = ({ curStrokeColor }) => {
+const SketchPad = ({ curStrokeColor, curBgColor, penType }) => {
   const canvas = useRef();
   return (
     <div className="relative w-full flex flex-col justify-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
@@ -17,14 +17,14 @@ const SketchPad = ({ curStrokeColor }) => {
         Sketchpad 🎨
       </h1>
       <BackButton />
-      <div className="h-full my-4 border-dark border-2 shadow-dark shadow-sm">
+      <div className=" my-4 border-dark border-2 shadow-dark shadow-sm">
         <ReactSketchCanvas
           ref={canvas}
           canvasStyles={canvasStyles}
-          strokeWidth={5}
-          canvasColor={"#feeca9"}
+          strokeWidth={penType ? penType : 5}
+          canvasColor={curBgColor ? curBgColor : "#feeca9"}
           strokeColor={curStrokeColor ? curStrokeColor : "#f58094"}
-          height="60vh"
+          height="55vh"
         />
       </div>
       <div className="flex w-full justify-between">

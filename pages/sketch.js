@@ -5,6 +5,8 @@ import ColorPalette from "../components/ColorPalette";
 
 export default function Sketch() {
   const [curStrokeColor, setCurStrokeColor] = useState("");
+  const [curBgColor, setCurBgColor] = useState("");
+  const [penType, setPenType] = useState("");
   return (
     <>
       <Head>
@@ -16,9 +18,18 @@ export default function Sketch() {
       <main className="page_container">
         <section>
           <div className="mb-5">
-            <SketchPad curStrokeColor={curStrokeColor} />
+            <SketchPad
+              curStrokeColor={curStrokeColor}
+              curBgColor={curBgColor}
+              penType={penType}
+            />
           </div>
-          <ColorPalette setCurStrokeColor={setCurStrokeColor} />
+          <ColorPalette
+            setCurStrokeColor={setCurStrokeColor}
+            setCurBgColor={setCurBgColor}
+            setPenType={setPenType}
+            curStrokeColor={curStrokeColor}
+          />
         </section>
       </main>
     </>
