@@ -16,6 +16,8 @@ module.exports = {
         tangerine: "var(--tangerine)",
         "tangerine-alt": "var(--tangerine-alt)",
         dark: "var(--dark)",
+        error: "var(--error)",
+        success: "var(--success)",
       },
       boxShadow: {
         md: "10px 10px 0 0 var(--dark)",

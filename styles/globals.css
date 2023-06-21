@@ -11,7 +11,9 @@
   --purple-alt: #b5d1fa;
   --tangerine: #feeca9;
   --tangerine-alt: #feb977;
-  --dark: #1e1e1f;
+  --dark: #353543;
+  --error: #f01717;
+  --success: #05909a;
 }
 
 button, * {

@@ -1,18 +1,15 @@
 import React, { useState } from "react";
+import cx from "classnames";
 
 const ColorPalette = ({
   setCurStrokeColor,
   setCurBgColor,
   setPenType,
   curStrokeColor,
+  curBgColor,
+  curPenType,
 }) => {
   const [curSetting, setCurSetting] = useState("fg-color");
-
-  const handleSettingsChange = (e) => {
-    setCurSetting(e.target.name);
-  };
-
-  console.log(curStrokeColor);
 
   const colors = [
     {
@@ -32,19 +29,29 @@ const ColorPalette = ({
       value: "#feeca9",
     },
   ];
+
+  const handleSettingsChange = (e) => {
+    setCurSetting(e.target.name);
+  };
+
+  const handlePenChange = (size) => {
+    setPenType(size);
+    setCurSetting("fg-color");
+  };
+
   return (
     <div className="w-full flex flex-col justify-around bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
       <div className="flex w-full justify-around mb-5">
         <div className="text-xs">
           <label className="mr-2" htmlFor="bg-color">
-            Foreground
+            Color
           </label>
           <input
             type="checkbox"
             name="fg-color"
             checked={curSetting === "fg-color"}
             onChange={handleSettingsChange}
-            className="cursor-pointer"
+            className="cursor-pointer accent-lime-alt"
           />
         </div>
         <div className="text-xs">
@@ -56,7 +63,7 @@ const ColorPalette = ({
             name="bg-color"
             checked={curSetting === "bg-color"}
             onChange={handleSettingsChange}
-            className="cursor-pointer"
+            className="cursor-pointer accent-lime-alt"
           />
         </div>
         <div className="text-xs">
@@ -68,7 +75,7 @@ const ColorPalette = ({
             name="pen-type"
             checked={curSetting === "pen-type"}
             onChange={handleSettingsChange}
-            className="cursor-pointer"
+            className="cursor-pointer accent-lime-alt"
           />
         </div>
       </div>
@@ -76,20 +83,35 @@ const ColorPalette = ({
         {curSetting === "pen-type" ? (
           <>
             <button
-              onClick={() => setPenType(5)}
+              onClick={() => handlePenChange(5)}
               aria-label="pen size: small"
-              className={`cursor-pointer !bg-[${curStrokeColor}] p-0 h-2 w-2 border-none shadow-none`}
-            ></button>
+              className={cx("w-10 h-10 flex justify-center items-center", {
+                "translate-y-1 translate-x-1 shadow-none": curPenType === 5,
+              })}
+              style={{ backgroundColor: curStrokeColor }}
+            >
+              <span className="absolute rounded-xl bg-dark w-1.5 h-1.5" />
+            </button>
             <button
-              onClick={() => setPenType(10)}
+              onClick={() => handlePenChange(10)}
               aria-label="pen size: medium"
-              className={`cursor-pointer !bg-[${curStrokeColor}] p-0 w-4 h-4 border-none shadow-none`}
-            ></button>
+              className={cx("w-10 h-10 flex justify-center items-center", {
+                "translate-y-1 translate-x-1 shadow-none": curPenType === 10,
+              })}
+              style={{ backgroundColor: curStrokeColor }}
+            >
+              <span className="absolute rounded-xl bg-dark w-2.5 h-2.5" />
+            </button>
             <button
-              onClick={() => setPenType(15)}
+              onClick={() => handlePenChange(15)}
               aria-label="pen size: large"
-              className={`cursor-pointer !bg-[${curStrokeColor}] p-0 w-6 h-6 border-none shadow-none`}
-            ></button>
+              className={cx("w-10 h-10 flex justify-center items-center", {
+                "translate-y-1 translate-x-1 shadow-none": curPenType === 15,
+              })}
+              style={{ backgroundColor: curStrokeColor }}
+            >
+              <span className="absolute rounded-xl bg-dark w-4 h-4" />
+            </button>
           </>
         ) : (
           colors.map((c, i) => (
@@ -100,9 +122,24 @@ const ColorPalette = ({
                   ? setCurStrokeColor(c.value)
                   : setCurBgColor(c.value)
               }
-              className="w-10 h-10"
+              className={cx("w-10 h-10 flex justify-center items-center", {
+                "translate-y-1 translate-x-1 shadow-none":
+                  (curSetting === "fg-color" && curStrokeColor === c.value) ||
+                  (curSetting === "bg-color" && curBgColor === c.value),
+              })}
               style={{ backgroundColor: c.value }}
-            />
+            >
+              <span
+                className={cx(
+                  "transition-all text-2xl",
+                  curBgColor === c.value && curSetting === "fg-color"
+                    ? "opacity-1"
+                    : "opacity-0"
+                )}
+              >
+                🧽
+              </span>
+            </button>
           ))
         )}
       </div>

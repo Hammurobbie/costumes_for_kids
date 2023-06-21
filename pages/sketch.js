@@ -4,9 +4,9 @@ import SketchPad from "../components/SketchPad";
 import ColorPalette from "../components/ColorPalette";
 
 export default function Sketch() {
-  const [curStrokeColor, setCurStrokeColor] = useState("");
-  const [curBgColor, setCurBgColor] = useState("");
-  const [penType, setPenType] = useState("");
+  const [curStrokeColor, setCurStrokeColor] = useState("#f58094");
+  const [curBgColor, setCurBgColor] = useState("#feeca9");
+  const [curPenType, setPenType] = useState(5);
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ export default function Sketch() {
             <SketchPad
               curStrokeColor={curStrokeColor}
               curBgColor={curBgColor}
-              penType={penType}
+              curPenType={curPenType}
             />
           </div>
           <ColorPalette
@@ -29,6 +29,8 @@ export default function Sketch() {
             setCurBgColor={setCurBgColor}
             setPenType={setPenType}
             curStrokeColor={curStrokeColor}
+            curBgColor={curBgColor}
+            curPenType={curPenType}
           />
         </section>
       </main>

@@ -16,22 +16,23 @@ export default function Landing() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="page_container justify-center">
-        <section className="w-full h-2/3 bg-lime-alt flex flex-col justify-around items-center p-4 py-5 border-dark border-4 shadow-dark shadow-md">
+        <section className="w-full h-2/3 bg-salmon flex flex-col justify-around items-center p-4 py-5 border-dark border-4 shadow-dark shadow-md">
           <div className="flex flex-col items-center">
             <h1 className="text-2xl mb-2">Howdy 🤠</h1>
             <p>Welcome to DreamWeavers</p>
+            <p className="mt-12">_ logo _</p>
           </div>
           <div className="flex flex-col items-center justify-around w-48 h-2/5">
             {/* auth2 login or register */}
             <button
-              className="hover:bg-salmon focus:bg-salmon disabled:hover:bg-gray-200 disabled:active:transform-none disabled:active:shadow-sm disabled:cursor-not-allowed"
+              className="hover:bg-lime-alt focus:bg-lime-alt disabled:hover:bg-gray-200 disabled:active:transform-none disabled:active:shadow-sm disabled:cursor-not-allowed"
               onClick={() => push("/dashboard")}
               disabled={!globalUser?.name ? true : false}
             >
               login
             </button>
             <button
-              className="hover:bg-salmon focus:bg-salmon"
+              className="hover:bg-lime-alt focus:bg-lime-alt"
               onClick={() => push("/introduction")}
             >
               register

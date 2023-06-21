@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import BackButton from "../components/BackButton";
 import cx from "classnames";
@@ -11,9 +11,39 @@ export default function Notepad() {
   const [formMessage, setFormMessage] = useState(initFormMessage);
   const [notepadText, setNotepadText] = useState("");
 
+  useEffect(() => {
+    // api call to existing note text
+    const serverNote = "";
+    setNotepadText(serverNote);
+  }, []);
+
+  const handleNoteChange = (e) => {
+    if (formMessage.message) {
+      setFormMessage(initFormMessage);
+    }
+    setNotepadText(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (notepadText) {
+      // api call to post note
+      console.log("sent");
+      setFormMessage({
+        type: "success",
+        message: "✨ Nice, we got your note! ✨",
+      });
+      setTimeout(() => {
+        setFormMessage(initFormMessage);
+      }, 5000);
+    } else {
+      setFormMessage({
+        type: "error",
+        message: "⛔ Add a note before submitting ⛔",
+      });
+    }
   };
+
   return (
     <>
       <Head>
@@ -27,22 +57,23 @@ export default function Notepad() {
           <h1 className="text-center mb-6 ml-7 sm:ml-0">Notepad ✏️</h1>
           <BackButton />
           <p className="text-center">
-            {"Tell me all about your dream outfit or costume"}
+            {"Tell me about your dream outfit or costume"}
           </p>
           <form
             onSubmit={handleSubmit}
             className="flex flex-col items-center h-full"
           >
             <em
-              className={cx("h-7 text-lime", {
+              className={cx("h-7 text-success", {
                 "opacity-0": !formMessage?.message,
-                "text-salmon-alt": formMessage?.type === "error",
+                "text-error": formMessage?.type === "error",
               })}
             >
               {formMessage?.message}
             </em>
             <div className="w-full h-2/3 mb-3">
               <textarea
+                onChange={handleNoteChange}
                 defaultValue={notepadText}
                 className="w-full h-full p-2 bg-tangerine border-dark border-4 shadow-dark shadow-sm focus:outline-none"
               />

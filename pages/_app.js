@@ -1,6 +1,5 @@
 // TODO: add extra page of form gathering more info changing user experience based on age/favorites/costume or outfit etc
 // TODO: connect forms at least to next.js backend for demo
-// TODO: add more customization for sketchpad
 // TODO: add image upload
 // TODO: image gallery of user uploads and creator progress uploads
 // TODO: maybe chat functionality
