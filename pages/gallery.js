@@ -1,8 +1,10 @@
-import react, { useState } from "react";
+import react, { useEffect, useState } from "react";
 import Head from "next/head";
 import BackButton from "../components/BackButton";
+import ImageUpload from "../components/ImageUpload";
+import Toggle from "../components/Toggle";
 
-const mockImgs = [
+const userMockImages = [
   {
     url: "https://www.highsnobiety.com/static-assets/thumbor/Q1Pu2XhtpeqMg-fPzo4hUNrPOQ8=/1600x2400/www.highsnobiety.com/static-assets/wp-content/uploads/2023/02/12185956/lizzo-brit-awards-2023-outfit1.jpg",
     alt: "lizzo",
@@ -21,20 +23,49 @@ const mockImgs = [
   },
 ];
 
+const designerMockImages = [
+  {
+    url: "https://static.wixstatic.com/media/f82a6c_26922b98f76746cc968a0550d8808b31~mv2.jpg/v1/fit/w_616,h_1304,q_90/f82a6c_26922b98f76746cc968a0550d8808b31~mv2.webpg",
+    alt: "dress",
+    notes: "Here's the mockup. It's really coming together!",
+  },
+  {
+    url: "https://static.wixstatic.com/media/f82a6c_1573b56751ea42518e0f0d5e0ae0ec6c~mv2.jpg/v1/fit/w_612,h_1304,q_90/f82a6c_1573b56751ea42518e0f0d5e0ae0ec6c~mv2.webp",
+    alt: "stalagmites",
+    notes: "Take a look at the intial design",
+  },
+  {
+    url: "https://static.wixstatic.com/media/f82a6c_d8b41e0203f54cb185e49de6a3ea51d3~mv2.jpg/v1/fit/w_616,h_1304,q_90/f82a6c_d8b41e0203f54cb185e49de6a3ea51d3~mv2.webp",
+    alt: "Ophelia",
+    notes: "First fitting 😍",
+  },
+  {
+    url: "https://static.wixstatic.com/media/f82a6c_ac5a455003ae40178fd93e5dd7c28cf2~mv2.jpg/v1/fit/w_228,h_1304,q_90/f82a6c_ac5a455003ae40178fd93e5dd7c28cf2~mv2.webp",
+    alt: "bright room",
+    notes: "A few different variations I had in mind",
+  },
+];
+
 export default function Gallery() {
-  const [images, setImages] = useState(mockImgs);
-  const [curImage, setCurImage] = useState(images[0]);
+  const [viewToggle, setViewToggle] = useState(false);
+  const [designerImages, setDesignerImages] = useState(designerMockImages);
+  const [userImages, setUserImages] = useState(userMockImages);
+  const [curImage, setCurImage] = useState(userImages[0]);
+
+  useEffect(() => {
+    setCurImage(viewToggle ? designerImages[0] : userImages[0]);
+  }, [viewToggle, designerImages, userImages]);
 
   const handleImageChange = (i) => {
-    setCurImage(images[i]);
+    setCurImage(viewToggle ? designerImages[i] : userImages[i]);
   };
 
   return (
     <>
       <Head>
-        <title>Photo Gallery</title>
+        <title>Photo Album</title>
         <meta
-          name="Photo Gallery"
+          name="Photo Album"
           content="View photos of your project's progress"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,10 +73,13 @@ export default function Gallery() {
       </Head>
       <main className="page_container">
         <section className="relative w-full h-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-          <h1 className="mb-6 ml-7 sm:ml-0">Photo Album 📷</h1>
+          <h1 className="mb-6 ml-1 sm:ml-0">{`${
+            viewToggle ? "Desginer" : "Your"
+          } Photos 📷`}</h1>
           <BackButton />
+          <Toggle isToggled={viewToggle} setIsToggled={setViewToggle} />
           <div className="flex flex-col h-full w-full px-3">
-            <div className="h-1/2 mb-3.5 border-dark border-4 shadow-dark shadow-sm">
+            <div className="h-2/5 mb-3.5 border-dark border-4 shadow-dark shadow-sm">
               <div className="h-full w-full">
                 <img
                   className="bg-salmon-alt object-cover object-center h-full w-full"
@@ -55,7 +89,7 @@ export default function Gallery() {
               </div>
             </div>
             <div className="bg-purple-alt h-[110px] overflow-x-auto flex border-dark border-4 shadow-dark shadow-sm">
-              {images?.map((img, i) => (
+              {(viewToggle ? designerImages : userImages)?.map((img, i) => (
                 <button
                   key={i}
                   onClick={() => handleImageChange(i)}
@@ -69,6 +103,16 @@ export default function Gallery() {
                 </button>
               ))}
             </div>
+            {viewToggle ? (
+              <div className="w-full flex flex-col items-center mt-4">
+                <h2>Designer Notes</h2>
+                <div className="bg-purple-alt p-2 h-32 w-full mt-2 border-dark border-4 shadow-dark shadow-sm overflow-auto">
+                  <p className="">{curImage?.notes}</p>
+                </div>
+              </div>
+            ) : (
+              <ImageUpload />
+            )}
           </div>
         </section>
       </main>

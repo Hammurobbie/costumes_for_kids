@@ -42,8 +42,8 @@ const ColorPalette = ({
   return (
     <div className="w-full flex flex-col justify-around bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
       <div className="flex w-full justify-around mb-5">
-        <div className="text-xs">
-          <label className="mr-2" htmlFor="bg-color">
+        <div className="text-xs flex items-center">
+          <label className="mr-3" htmlFor="bg-color">
             Color
           </label>
           <input
@@ -51,10 +51,10 @@ const ColorPalette = ({
             name="fg-color"
             checked={curSetting === "fg-color"}
             onChange={handleSettingsChange}
-            className="cursor-pointer accent-lime-alt"
+            className="cursor-pointer accent-lime-alt scale-150 m-1 outline"
           />
         </div>
-        <div className="text-xs">
+        <div className="text-xs flex items-center">
           <label className="mr-2" htmlFor="bg-color">
             Background
           </label>
@@ -63,10 +63,10 @@ const ColorPalette = ({
             name="bg-color"
             checked={curSetting === "bg-color"}
             onChange={handleSettingsChange}
-            className="cursor-pointer accent-lime-alt"
+            className="cursor-pointer accent-lime-alt scale-150 m-1 outline"
           />
         </div>
-        <div className="text-xs">
+        <div className="text-xs flex items-center">
           <label className="mr-2" htmlFor="bg-color">
             Pen Type
           </label>
@@ -75,7 +75,7 @@ const ColorPalette = ({
             name="pen-type"
             checked={curSetting === "pen-type"}
             onChange={handleSettingsChange}
-            className="cursor-pointer accent-lime-alt"
+            className="cursor-pointer accent-lime-alt scale-150 m-1 outline"
           />
         </div>
       </div>
