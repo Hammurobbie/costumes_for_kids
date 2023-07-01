@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import BackButton from "./BackButton";
+import cx from "classnames";
 
 const canvasStyles = {
   border: "none",
@@ -10,10 +11,25 @@ const canvasStyles = {
 };
 
 const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
+  const initGalleryMessage = {
+    type: "",
+    message: "",
+  };
+  const [galleryMessage, setGalleryMessage] = useState(initGalleryMessage);
   const canvas = useRef();
 
   const handleSave = () => {
-    console.log("saved");
+    setGalleryMessage({
+      type: "success",
+      message: "✨ Nice, we got your image! ✨",
+    });
+    // setGalleryMessage({
+    //   type: "error",
+    //   message: "😮 Oops! Please try uploading again 😮",
+    // });
+    setTimeout(() => {
+      setGalleryMessage(initGalleryMessage);
+    }, 5000);
   };
 
   return (
@@ -22,7 +38,15 @@ const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
         Sketchpad 🎨
       </h1>
       <BackButton />
-      <div className=" my-4 border-dark border-2 shadow-dark shadow-sm">
+      <em
+        className={cx("h-7 text-success text-center", {
+          "opacity-0": !galleryMessage?.message,
+          "text-error": galleryMessage?.type === "error",
+        })}
+      >
+        {galleryMessage?.message}
+      </em>
+      <div className=" mb-4 border-dark border-2 shadow-dark shadow-sm">
         <ReactSketchCanvas
           ref={canvas}
           canvasStyles={canvasStyles}
