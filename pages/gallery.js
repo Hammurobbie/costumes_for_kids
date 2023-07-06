@@ -32,7 +32,7 @@ const designerMockImages = [
   {
     url: "https://static.wixstatic.com/media/f82a6c_1573b56751ea42518e0f0d5e0ae0ec6c~mv2.jpg/v1/fit/w_612,h_1304,q_90/f82a6c_1573b56751ea42518e0f0d5e0ae0ec6c~mv2.webp",
     alt: "stalagmites",
-    notes: "Take a look at the intial design",
+    notes: "Take a look at the initial design",
   },
   {
     url: "https://static.wixstatic.com/media/f82a6c_d8b41e0203f54cb185e49de6a3ea51d3~mv2.jpg/v1/fit/w_616,h_1304,q_90/f82a6c_d8b41e0203f54cb185e49de6a3ea51d3~mv2.webp",
@@ -60,6 +60,19 @@ export default function Gallery() {
     setCurImage(viewToggle ? designerImages[i] : userImages[i]);
   };
 
+  function getOrientation() {
+    var img = new Image();
+
+    img.onload = function () {
+      var height = img.height;
+      var width = img.width;
+
+      console.log(height, width);
+    };
+
+    img.src = curImage?.url;
+  }
+
   return (
     <>
       <Head>
@@ -74,16 +87,20 @@ export default function Gallery() {
       <main className="page_container">
         <section className="relative w-full h-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
           <h1 className="mb-6 ml-1 sm:ml-0">{`${
-            viewToggle ? "Desginer" : "Your"
+            viewToggle ? "Design" : "Your"
           } Photos 📷`}</h1>
           <BackButton />
           <Toggle isToggled={viewToggle} setIsToggled={setViewToggle} />
-          <div className="flex flex-col h-full w-full px-3">
+          <div className="flex flex-col h-full w-full max-w-[500px] px-3">
             <div className="h-2/5 mb-3.5 border-dark border-4 shadow-dark shadow-sm">
               <div className="h-full w-full">
                 <img
                   className="bg-salmon-alt object-cover object-center h-full w-full"
-                  src={curImage?.url}
+                  src={
+                    typeof curImage?.url !== "string"
+                      ? URL.createObjectURL(curImage?.url)
+                      : curImage?.url
+                  }
                   alt={curImage?.alt}
                 />
               </div>
@@ -97,7 +114,11 @@ export default function Gallery() {
                 >
                   <img
                     className="object-center h-full w-full"
-                    src={img?.url}
+                    src={
+                      typeof img?.url !== "string"
+                        ? URL.createObjectURL(img?.url)
+                        : img?.url
+                    }
                     alt={img?.alt}
                   />
                 </button>
@@ -111,7 +132,10 @@ export default function Gallery() {
                 </div>
               </div>
             ) : (
-              <ImageUpload />
+              <ImageUpload
+                setUserImages={setUserImages}
+                userImages={userImages}
+              />
             )}
           </div>
         </section>

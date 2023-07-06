@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cx from "classnames";
 import Image from "next/image";
 
-const ImageUpload = () => {
+const ImageUpload = ({ setUserImages, userImages }) => {
   const initGalleryMessage = {
     type: "",
     message: "",
@@ -32,6 +32,11 @@ const ImageUpload = () => {
     setTimeout(() => {
       setGalleryMessage(initGalleryMessage);
     }, 5000);
+    const newImgObj = {
+      url: selectedImage,
+      alt: selectedImage?.name || "user img",
+    };
+    setUserImages([newImgObj, ...userImages]);
     setSelectedImage(null);
     document.getElementById("imageUpload").value = "";
   };
@@ -41,7 +46,7 @@ const ImageUpload = () => {
       <h2>Upload an image</h2>
       <div
         className={cx(
-          "flex justify-center items-center bg-purple-alt h-32 w-full mt-2 border-dark border-4 shadow-dark shadow-sm transition-all overflow-hidden",
+          "flex justify-center items-center bg-purple-alt h-32 w-full max-w-[300px] mt-2 border-dark border-4 shadow-dark shadow-sm transition-all overflow-hidden",
           {
             "border-dashed shadow-none": imageHovered,
           }
@@ -49,7 +54,7 @@ const ImageUpload = () => {
       >
         {selectedImage ? (
           <Image
-            alt="not found"
+            alt={selectedImage?.name || "not found"}
             width={320}
             height={200}
             src={URL.createObjectURL(selectedImage)}

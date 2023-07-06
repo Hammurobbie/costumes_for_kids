@@ -11,7 +11,7 @@ export default function Dashboard() {
     push("/");
     setTimeout(() => {
       setGlobalUser(null);
-      // localStorage.clear();
+      localStorage.clear();
     }, 100);
   };
   return (
@@ -24,7 +24,7 @@ export default function Dashboard() {
       </Head>
       <main className="page_container">
         <section className="w-full h-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-          <div className="flex items-center mb-10">
+          <div className="flex items-center mb-7">
             <h1 className="w-5/6">{`Hey, ${
               globalUser?.name?.split(" ")[0]
             } 👋`}</h1>
@@ -35,25 +35,27 @@ export default function Dashboard() {
               Sign out
             </button>
           </div>
-          <div className="flex h-1/2 flex-col justify-around items-center">
-            <h2>{"Let's get those ideas out!"}</h2>
+          <div className="flex flex-col justify-around items-center h-5/6">
+            <h2 className="text-4xl px-4 leading-snug">
+              Let's get those ideas out!
+            </h2>
             <button
-              className="w-56 hover:bg-tangerine-alt focus:bg-tangerine-alt"
+              className="h-20 w-full max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
               onClick={() => push("/sketch")}
             >
               Draw it
             </button>
             <button
-              className="w-56 hover:bg-tangerine-alt focus:bg-tangerine-alt"
+              className="h-20 w-full max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
               onClick={() => push("/notepad")}
             >
               Write it
             </button>
             <button
-              className="w-56 hover:bg-tangerine-alt focus:bg-tangerine-alt"
+              className="h-20 w-full max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
               onClick={() => push("/gallery")}
             >
-              snap it
+              Snap it
             </button>
           </div>
         </section>

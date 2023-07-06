@@ -17,8 +17,7 @@
 }
 
 button, * {
-  @apply uppercase tracking-tighter;
-  word-spacing: 2px;
+  @apply uppercase font-mono;
 }
 
 html,
@@ -29,12 +28,10 @@ body {
 
 h1 {
   @apply text-xl font-bold;
-  word-spacing: 5px;
 }
 
 h2 {
   @apply text-lg;
-  word-spacing: 3px;
 }
 
 button {

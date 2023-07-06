@@ -21,7 +21,7 @@ const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
   const handleSave = () => {
     setGalleryMessage({
       type: "success",
-      message: "✨ Nice, we got your image! ✨",
+      message: "✨ Nice, we saved your masterpiece! ✨",
     });
     // setGalleryMessage({
     //   type: "error",
@@ -53,7 +53,7 @@ const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
           strokeWidth={curPenType}
           canvasColor={curBgColor}
           strokeColor={curStrokeColor}
-          height="55vh"
+          height="45vh"
         />
       </div>
       <div className="flex w-full justify-between">
