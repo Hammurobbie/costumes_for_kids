@@ -37,7 +37,7 @@ export default function Dashboard() {
           </div>
           <div className="flex flex-col justify-around items-center h-5/6">
             <h2 className="text-4xl px-4 leading-snug">
-              Let's get those ideas out!
+              {"Let's get those ideas out!"}
             </h2>
             <button
               className="h-20 w-full max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
