@@ -12,7 +12,7 @@ const Introduction = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="w-full p-4 py-5">
+      <main className="page_container">
         <IntroForm />
       </main>
     </>

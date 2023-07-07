@@ -127,7 +127,7 @@ export default function Gallery() {
             {viewToggle ? (
               <div className="w-full flex flex-col items-center mt-4">
                 <h2>Designer Notes</h2>
-                <div className="bg-purple-alt p-2 h-32 w-full mt-2 border-dark border-4 shadow-dark shadow-sm overflow-auto">
+                <div className="bg-purple-alt p-2 h-36 w-full mt-2 border-dark border-4 shadow-dark shadow-sm overflow-auto">
                   <p className="">{curImage?.notes}</p>
                 </div>
               </div>

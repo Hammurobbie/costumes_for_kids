@@ -46,7 +46,7 @@ const ImageUpload = ({ setUserImages, userImages }) => {
       <h2>Upload an image</h2>
       <div
         className={cx(
-          "flex justify-center items-center bg-purple-alt h-32 w-full max-w-[300px] mt-2 border-dark border-4 shadow-dark shadow-sm transition-all overflow-hidden",
+          "flex justify-center items-center bg-purple-alt h-28 w-full max-w-[300px] mt-2 border-dark border-4 shadow-dark shadow-sm transition-all overflow-hidden",
           {
             "border-dashed shadow-none": imageHovered,
           }
@@ -74,7 +74,7 @@ const ImageUpload = ({ setUserImages, userImages }) => {
         onDragEnter={() => setImageHovered(true)}
         onDragLeave={() => setImageHovered(false)}
         onDrop={() => setImageHovered(false)}
-        className="bg-purple opacity-0 absolute top-7 h-32 w-full cursor-pointer"
+        className="bg-purple opacity-0 absolute top-7 h-28 w-full cursor-pointer"
       />
       {galleryMessage?.message && !selectedImage ? (
         <em
