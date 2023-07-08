@@ -5,6 +5,7 @@
 import "../styles/globals.css";
 import { useState } from "react";
 import { UserContext } from "../contexts/UserContext";
+import Router from "next/router";
 
 export default function App({ Component, pageProps }) {
   let name = "";
@@ -23,6 +24,13 @@ export default function App({ Component, pageProps }) {
     favColor: favColor,
     shortDesc: shortDesc,
   });
+
+  Router.onRouteChangeComplete = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+    });
+  };
 
   return (
     <UserContext.Provider value={{ globalUser, setGlobalUser }}>
