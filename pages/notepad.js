@@ -71,7 +71,7 @@ export default function Notepad() {
             >
               {formMessage?.message}
             </em>
-            <div className="w-full h-2/3 mb-3">
+            <div className="w-full h-3/5 mb-3">
               <textarea
                 onChange={handleNoteChange}
                 defaultValue={notepadText}
