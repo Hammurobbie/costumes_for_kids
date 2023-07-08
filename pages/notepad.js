@@ -39,7 +39,7 @@ export default function Notepad() {
     } else {
       setFormMessage({
         type: "error",
-        message: "⛔ Add a note before submitting ⛔",
+        message: "⛔ Add a note first ⛔",
       });
     }
   };

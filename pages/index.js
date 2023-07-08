@@ -15,7 +15,7 @@ export default function Landing() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="page_container justify-center">
+      <main className="flex flex-col px-4 h-screen justify-center">
         <section className="w-full h-2/3 bg-salmon flex flex-col justify-around items-center p-4 py-5 border-dark border-4 shadow-dark shadow-md">
           <div className="flex flex-col items-center">
             <h1 className="text-2xl mb-2">Howdy 🤠</h1>

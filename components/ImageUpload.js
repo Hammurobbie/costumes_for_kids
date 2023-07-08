@@ -23,7 +23,7 @@ const ImageUpload = ({ setUserImages, userImages }) => {
   const handleImageSubmit = () => {
     setGalleryMessage({
       type: "success",
-      message: "✨ Nice, we got your image! ✨",
+      message: "✨ We got your image! ✨",
     });
     // setGalleryMessage({
     //   type: "error",

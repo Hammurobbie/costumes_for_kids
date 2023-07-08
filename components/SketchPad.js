@@ -21,7 +21,7 @@ const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
   const handleSave = () => {
     setGalleryMessage({
       type: "success",
-      message: "✨ Nice, we saved your masterpiece! ✨",
+      message: "✨ We saved your sketch! ✨",
     });
     // setGalleryMessage({
     //   type: "error",
