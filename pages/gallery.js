@@ -3,6 +3,7 @@ import Head from "next/head";
 import BackButton from "../components/BackButton";
 import ImageUpload from "../components/ImageUpload";
 import Toggle from "../components/Toggle";
+import cx from "classnames";
 
 const userMockImages = [
   {
@@ -51,27 +52,40 @@ export default function Gallery() {
   const [designerImages, setDesignerImages] = useState(designerMockImages);
   const [userImages, setUserImages] = useState(userMockImages);
   const [curImage, setCurImage] = useState(userImages[0]);
+  const [isFullSizeImage, setIsFullSizeImage] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(500);
 
   useEffect(() => {
     setCurImage(viewToggle ? designerImages[0] : userImages[0]);
   }, [viewToggle, designerImages, userImages]);
 
+  useEffect(() => {
+    setWindowHeight(window.screen.height - 300);
+  }, []);
+
   const handleImageChange = (i) => {
+    const tarButton = document?.getElementById(`thumbnail-${i}`);
+    const thumbnailDiv = document?.getElementById("thumbnail-div");
+    const thumbnailPos = tarButton.getBoundingClientRect()?.x;
+    if (
+      thumbnailPos - thumbnailDiv.getBoundingClientRect()?.x + 85 >
+        thumbnailDiv.offsetWidth ||
+      thumbnailPos < thumbnailDiv.getBoundingClientRect()?.x
+    ) {
+      thumbnailDiv.scroll(thumbnailPos, 0);
+    }
     setCurImage(viewToggle ? designerImages[i] : userImages[i]);
   };
 
-  function getOrientation() {
-    var img = new Image();
-
-    img.onload = function () {
-      var height = img.height;
-      var width = img.width;
-
-      console.log(height, width);
-    };
-
-    img.src = curImage?.url;
-  }
+  const toggleFullSizeImage = () => {
+    setIsFullSizeImage(!isFullSizeImage);
+    if (!isFullSizeImage) {
+      document.body.style.overflow = "hidden";
+      scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  };
 
   return (
     <>
@@ -85,6 +99,38 @@ export default function Gallery() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="page_container">
+        <div
+          className={cx(
+            "absolute left-0 flex justify-center items-center h-screen w-full transition-all duration-500 px-4",
+            {
+              "opacity-0 z-0 pointer-events-none": !isFullSizeImage,
+              "opacity-100 z-10": isFullSizeImage,
+            }
+          )}
+        >
+          <div className="absolute top-0 left-0 h-full w-full bg-purple-alt opacity-95"></div>
+          <button
+            onClick={toggleFullSizeImage}
+            className="absolute z-20 right-4 top-4 w-20 py-1 flex justify-center hover:bg-salmon"
+          >
+            close
+          </button>
+          <div
+            className="z-20 border-dark border-4 shadow-dark shadow-sm"
+            style={{ maxHeight: `${windowHeight}px` }}
+          >
+            <img
+              className="bg-salmon-alt object-contain"
+              style={{ maxHeight: `${windowHeight - 10}px` }}
+              src={
+                typeof curImage?.url !== "string"
+                  ? URL.createObjectURL(curImage?.url)
+                  : curImage?.url
+              }
+              alt={curImage?.alt}
+            />
+          </div>
+        </div>
         <section className="relative w-full h-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
           <h1 className="mb-6 ml-1 sm:ml-0">{`${
             viewToggle ? "Design" : "Your"
@@ -92,7 +138,10 @@ export default function Gallery() {
           <BackButton />
           <Toggle isToggled={viewToggle} setIsToggled={setViewToggle} />
           <div className="flex flex-col h-full w-full max-w-[500px] px-3">
-            <div className="h-2/5 mb-3.5 border-dark border-4 shadow-dark shadow-sm">
+            <button
+              onClick={toggleFullSizeImage}
+              className="h-2/5 min-h-[310px] mb-3.5 border-dark border-4 shadow-dark shadow-sm p-0 rounded-none"
+            >
               <div className="h-full w-full">
                 <img
                   className="bg-salmon-alt object-cover object-center h-full w-full"
@@ -104,23 +153,29 @@ export default function Gallery() {
                   alt={curImage?.alt}
                 />
               </div>
-            </div>
-            <div className="bg-purple-alt h-[110px] overflow-x-auto flex border-dark border-4 shadow-dark shadow-sm">
+            </button>
+            <div
+              id="thumbnail-div"
+              className="bg-purple-alt h-[110px] scroll-smooth overflow-x-auto flex border-dark border-4 shadow-dark shadow-sm"
+            >
               {(viewToggle ? designerImages : userImages)?.map((img, i) => (
                 <button
                   key={i}
+                  id={`thumbnail-${i}`}
                   onClick={() => handleImageChange(i)}
-                  className="min-w-[85px] h-[85px] m-1.5 hover:bg-tangerine-alt focus:bg-tangerine-alt"
+                  className="min-w-[85px] h-[85px] m-1.5 p-0 overflow-hidden hover:bg-tangerine-alt focus:bg-tangerine-alt"
                 >
-                  <img
-                    className="object-center h-full w-full"
-                    src={
-                      typeof img?.url !== "string"
-                        ? URL.createObjectURL(img?.url)
-                        : img?.url
-                    }
-                    alt={img?.alt}
-                  />
+                  <div className="h-full w-full">
+                    <img
+                      className="object-cover object-center h-full w-full"
+                      src={
+                        typeof img?.url !== "string"
+                          ? URL.createObjectURL(img?.url)
+                          : img?.url
+                      }
+                      alt={img?.alt}
+                    />
+                  </div>
                 </button>
               ))}
             </div>

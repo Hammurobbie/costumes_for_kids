@@ -17,7 +17,7 @@
 }
 
 button, * {
-  @apply uppercase font-mono;
+  @apply uppercase font-mono text-dark;
 }
 
 html,
@@ -36,7 +36,7 @@ h2 {
 }
 
 button {
-  @apply w-full font-bold text-dark bg-tangerine px-4 py-2 border-dark border-4 shadow-dark shadow-sm rounded-xl transition-all;
+  @apply w-full font-bold bg-tangerine px-4 py-2 border-dark border-4 shadow-dark shadow-sm rounded-xl transition-all;
 }
 
 button:active {
