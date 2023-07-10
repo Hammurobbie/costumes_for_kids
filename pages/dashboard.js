@@ -24,7 +24,7 @@ export default function Dashboard() {
       </Head>
       <main className="page_container">
         <section className="w-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-          <div className="flex items-center mb-7">
+          <div className="flex items-center mb-6">
             <h1 className="w-5/6">{`Hey, ${
               globalUser?.name?.split(" ")[0]
             } 👋`}</h1>
@@ -35,8 +35,8 @@ export default function Dashboard() {
               Sign out
             </button>
           </div>
-          <div className="flex flex-col items-center h-5/6">
-            <h2 className="text-4xl px-4 pb-4 leading-snug">
+          <div className="flex flex-col items-center">
+            <h2 className="text-4xl px-4 py-4 leading-snug">
               {"Let's get those ideas out!"}
             </h2>
             <button
