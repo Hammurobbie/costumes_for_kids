@@ -23,7 +23,7 @@ export default function Dashboard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="page_container">
-        <section className="w-full h-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
+        <section className="w-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
           <div className="flex items-center mb-7">
             <h1 className="w-5/6">{`Hey, ${
               globalUser?.name?.split(" ")[0]
@@ -35,24 +35,24 @@ export default function Dashboard() {
               Sign out
             </button>
           </div>
-          <div className="flex flex-col justify-around items-center h-5/6">
-            <h2 className="text-4xl px-4 leading-snug">
+          <div className="flex flex-col items-center h-5/6">
+            <h2 className="text-4xl px-4 pb-4 leading-snug">
               {"Let's get those ideas out!"}
             </h2>
             <button
-              className="h-20 w-full max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
+              className="h-20 w-full my-6 max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
               onClick={() => push("/sketch")}
             >
               Draw it
             </button>
             <button
-              className="h-20 w-full max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
+              className="h-20 w-full my-6 max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
               onClick={() => push("/notepad")}
             >
               Write it
             </button>
             <button
-              className="h-20 w-full max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
+              className="h-20 w-full my-6 max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt"
               onClick={() => push("/gallery")}
             >
               Snap it

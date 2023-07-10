@@ -71,11 +71,11 @@ export default function Notepad() {
             >
               {formMessage?.message}
             </em>
-            <div className="w-full h-3/5 mb-3">
+            <div className="w-full mb-3">
               <textarea
                 onChange={handleNoteChange}
                 defaultValue={notepadText}
-                className="w-full h-full p-2 bg-tangerine border-dark border-4 shadow-dark shadow-sm focus:outline-none"
+                className="w-full h-96 p-2 bg-tangerine border-dark border-4 shadow-dark shadow-sm focus:outline-none"
               />
             </div>
             <button className="w-24 bg-purple-alt hover:bg-salmon-alt focus:bg-salmon-alt">
