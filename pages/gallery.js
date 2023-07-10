@@ -131,16 +131,16 @@ export default function Gallery() {
             />
           </div>
         </div>
-        <section className="relative w-full h-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
+        <section className="relative w-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
           <h1 className="mb-6 ml-1 sm:ml-0">{`${
             viewToggle ? "Design" : "Your"
           } Photos 📷`}</h1>
           <BackButton />
           <Toggle isToggled={viewToggle} setIsToggled={setViewToggle} />
-          <div className="flex flex-col h-full w-full max-w-[500px] px-3">
+          <div className="flex flex-col w-full max-w-[500px] px-3">
             <button
               onClick={toggleFullSizeImage}
-              className="h-2/5 min-h-[310px] mb-3.5 border-dark border-4 shadow-dark shadow-sm p-0 rounded-none"
+              className="h-[200px] min-h-[310px] mb-3.5 border-dark border-4 shadow-dark shadow-sm p-0 rounded-none"
             >
               <div className="h-full w-full">
                 <img
