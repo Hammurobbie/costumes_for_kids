@@ -8,7 +8,7 @@ import logo from "../img/logo.png";
 import { Shock } from "../icons/Shock.js";
 import { Shine } from "../icons/Shine.js";
 import { ShineFull } from "../icons/ShineFull.js";
-import { Threadline } from "../icons/threadline";
+import { Threadline } from "../icons/Threadline";
 
 export default function Landing() {
   const { globalUser } = useContext(UserContext);
