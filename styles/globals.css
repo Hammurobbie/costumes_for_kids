@@ -41,6 +41,7 @@ button {
 
 button:active {
   @apply transform translate-y-1 translate-x-1 shadow-none;
+  
 }
 
 button:focus {
