@@ -60,7 +60,7 @@ export default function Landing() {
             >
               login
               <span className="relative">
-                <Shine className="fill-dark w-7 absolute -top-8 left-16" />
+                <Shine className="pointer-events-none fill-dark w-7 absolute -top-8 left-16" />
               </span>
             </button>
             <button
@@ -69,7 +69,7 @@ export default function Landing() {
             >
               register
               <span className="relative">
-                <Shock className="fill-dark w-7 absolute -bottom-9 right-[120px] -scale-y-100 rotate-12" />
+                <Shock className="pointer-events-none fill-dark w-7 absolute -bottom-9 right-[120px] -scale-y-100 rotate-12" />
               </span>
             </button>
           </div>
