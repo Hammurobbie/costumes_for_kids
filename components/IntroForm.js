@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useRouter } from "next/navigation";
 import cx from "classnames";
+import { Wavy } from "../icons/Wavy";
 
 const IntroForm = () => {
   const { globalUser, setGlobalUser } = useContext(UserContext);
@@ -69,6 +70,9 @@ const IntroForm = () => {
     <div className="w-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
       <h1 className="text-2xl text-center font-bold text-dark">
         Nice to meet you!
+        <span className="relative">
+          <Wavy className="fill-dark w-28 absolute -left-32 rotate-1" />
+        </span>
       </h1>
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -101,7 +105,7 @@ const IntroForm = () => {
               placeholder="Harry Potter"
             ></input>
           </div>
-          <div className="w-full px-3 mb-3">
+          <div className="w-full px-3 mb-3 relative">
             <label
               className="block uppercase tracking-wide text-dark text-xs font-bold"
               htmlFor="age"

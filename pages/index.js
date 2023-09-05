@@ -6,6 +6,8 @@ import { UserContext } from "../contexts/UserContext";
 
 import logo from "../img/logo.png";
 import { Shock } from "../icons/Shock.js";
+import { Swirl } from "../icons/Swirl.js";
+import { Stars } from "../icons/Stars.js";
 import { Shine } from "../icons/Shine.js";
 import { ShineFull } from "../icons/ShineFull.js";
 import { Threadline } from "../icons/Threadline";
@@ -24,7 +26,9 @@ export default function Landing() {
       </Head>
       <main className="flex flex-col px-4 h-[90vh] justify-center items-center">
         <section className="w-full h-2/3 max-w-2xl max-h-[600px] bg-salmon flex flex-col justify-center items-center p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center relative">
+            <Swirl className="fill-dark w-5 absolute left-0 -bottom-3" />
+            <Stars className="fill-dark w-8 absolute -right-2 top-16 -rotate-12" />
             <h1 className="text-2xl mb-2">
               Howdy
               <span className="relative">
@@ -38,6 +42,7 @@ export default function Landing() {
               </span>
             </p>
             <Image
+              priority
               src={logo}
               height="auto"
               width={350}
@@ -51,6 +56,7 @@ export default function Landing() {
               className="hover:bg-lime-alt focus:bg-lime-alt disabled:hover:bg-gray-200 disabled:active:transform-none disabled:active:shadow-sm disabled:cursor-not-allowed"
               onClick={() => push("/dashboard")}
               disabled={!globalUser?.name ? true : false}
+              suppressHydrationWarning
             >
               login
               <span className="relative">
