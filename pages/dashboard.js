@@ -48,7 +48,7 @@ export default function Dashboard() {
           </div>
           <div className="flex flex-col items-center">
             <h2 className="text-4xl px-4 py-4 leading-snug">
-              Let's get those{" "}
+              {"Let's get those "}
               <span className="relative">
                 ideas
                 <ThoughtBubble className="fill-dark w-32 -top-7 -right-2 absolute rotate-[20deg]" />
