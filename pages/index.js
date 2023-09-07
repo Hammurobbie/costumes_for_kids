@@ -27,7 +27,7 @@ export default function Landing() {
       <main className="flex flex-col px-4 h-[90vh] justify-center items-center">
         <section className="w-full h-2/3 max-w-2xl max-h-[600px] bg-salmon flex flex-col justify-center items-center p-4 py-5 border-dark border-4 shadow-dark shadow-md">
           <div className="flex flex-col items-center relative">
-            <Swirl className="fill-dark w-5 absolute left-0 -bottom-3" />
+            <Swirl className="fill-dark w-4 absolute left-0 -bottom-3" />
             <Stars className="fill-dark w-8 absolute -right-2 top-16 -rotate-12" />
             <h1 className="text-2xl mb-2">
               Howdy

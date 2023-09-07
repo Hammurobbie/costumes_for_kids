@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import cx from "classnames";
+import { Dots2 } from "../icons/Dots2";
+import { Lines } from "../icons/Lines";
 
 const ColorPalette = ({
   setCurStrokeColor,
@@ -40,7 +42,9 @@ const ColorPalette = ({
   };
 
   return (
-    <div className="w-full flex flex-col justify-around bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
+    <div className="w-full flex flex-col justify-around bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md relative">
+      <Dots2 className="fill-dark w-8 absolute -right-1 -bottom-1" />
+      <Lines className="fill-dark w-8 absolute -left-3 bottom-12" />
       <div className="flex w-full justify-around mb-5">
         <div className="text-xs flex items-center">
           <label className="mr-3" htmlFor="bg-color">

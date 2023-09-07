@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import BackButton from "./BackButton";
 import cx from "classnames";
+import { DarkStars } from "../icons/DarkStars";
+import { ZigZag } from "../icons/ZigZag";
 
 const canvasStyles = {
   border: "none",
@@ -33,9 +35,13 @@ const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
   };
 
   return (
-    <div className="relative w-full flex flex-col justify-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
+    <div className="relative w-full flex flex-col justify-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md relative">
+      <ZigZag className="fill-dark w-20 absolute -left-8 bottom-52 rotate-90" />
       <h1 className="text-2xl font-bold text-dark text-center ml-7 sm:ml-0">
-        Sketchpad 🎨
+        Sketchpad
+        <span className="relative">
+          <DarkStars className="fill-dark w-11 absolute -right-14 -top-4" />
+        </span>
       </h1>
       <BackButton />
       <em

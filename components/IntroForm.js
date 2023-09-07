@@ -2,7 +2,10 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useRouter } from "next/navigation";
 import cx from "classnames";
+import { WavyThreadline } from "../icons/WavyThreadline";
+import { Scoops } from "../icons/Scoops";
 import { Wavy } from "../icons/Wavy";
+import { Star } from "../icons/Star";
 
 const IntroForm = () => {
   const { globalUser, setGlobalUser } = useContext(UserContext);
@@ -67,11 +70,14 @@ const IntroForm = () => {
   };
 
   return (
-    <div className="w-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
+    <div className="w-full bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md relative">
+      <Scoops className="fill-dark w-9 absolute right-6 top-72" />
+      <WavyThreadline className="fill-dark w-16 absolute -left-4 bottom-1 rotate-45" />
       <h1 className="text-2xl text-center font-bold text-dark">
         Nice to meet you!
         <span className="relative">
-          <Wavy className="fill-dark w-28 absolute -left-32 rotate-1" />
+          <Wavy className="fill-dark w-28 absolute right-3" />
+          <Star className="fill-dark w-6 absolute -right-12 -top-3" />
         </span>
       </h1>
       <form onSubmit={handleSubmit} className="mt-4">
