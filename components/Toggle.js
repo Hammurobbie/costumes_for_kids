@@ -1,10 +1,10 @@
 import React from "react";
 import cx from "classnames";
 
-const Toggle = ({ isToggled, setIsToggled }) => {
+const Toggle = ({ isToggled, ToggleFunc }) => {
   return (
     <button
-      onClick={() => setIsToggled(!isToggled)}
+      onClick={() => ToggleFunc()}
       className="absolute right-4 top-[22px] w-12 h-7 py-0.5 px-1 shadow-sm rounded-2xl"
     >
       <div

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import cx from "classnames";
 import Image from "next/image";
+import { Threadline } from "../icons/Threadline";
 
 const ImageUpload = ({ setUserImages, userImages }) => {
   const initGalleryMessage = {
@@ -43,7 +44,12 @@ const ImageUpload = ({ setUserImages, userImages }) => {
 
   return (
     <div className="relative flex flex-col items-center mt-4">
-      <h2>Upload an image</h2>
+      <h2>
+        Upload an image
+        <span className="relative">
+          <Threadline className="fill-dark w-40 absolute right-0 -bottom-1.5" />
+        </span>
+      </h2>
       <div
         className={cx(
           "flex justify-center items-center bg-purple-alt h-28 w-full max-w-[300px] mt-2 border-dark border-4 shadow-dark shadow-sm transition-all overflow-hidden",

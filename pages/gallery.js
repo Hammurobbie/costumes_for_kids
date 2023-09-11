@@ -4,7 +4,11 @@ import BackButton from "../components/BackButton";
 import ImageUpload from "../components/ImageUpload";
 import Toggle from "../components/Toggle";
 import cx from "classnames";
-import { ShineFull } from "../icons/ShineFull";
+import { Sparkles } from "../icons/Sparkles";
+import { Asterisk } from "../icons/Asterisk";
+import { Lines2 } from "../icons/Lines2";
+import { Threadline } from "../icons/Threadline";
+import { CrossHatchLong } from "../icons/CrossHatchLong";
 
 const userMockImages = [
   {
@@ -88,6 +92,11 @@ export default function Gallery() {
     }
   };
 
+  const handleViewChange = () => {
+    setViewToggle(!viewToggle);
+    handleImageChange(0);
+  };
+
   return (
     <>
       <Head>
@@ -132,20 +141,23 @@ export default function Gallery() {
             />
           </div>
         </div>
-        <section className="relative w-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-          <h1 className="mb-6 ml-1 sm:ml-0">
+        <section className="relative overflow-hidden w-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md relative">
+          <Lines2 className="fill-dark w-24 absolute -right-9 top-96 rotate-45" />
+          <CrossHatchLong className="fill-dark w-10 absolute left-14 -bottom-5 rotate-[100deg]" />
+          <h1 className="mb-6 mr-6 sm:mr-0">
             {`${viewToggle ? "Design" : "Your"} Photos`}
             <span className="relative">
-              <ShineFull className="fill-dark w-8 absolute -right-10 -top-0" />
+              <Sparkles className="fill-dark w-10 absolute -right-12 -top-4" />
             </span>
           </h1>
           <BackButton />
-          <Toggle isToggled={viewToggle} setIsToggled={setViewToggle} />
+          <Toggle isToggled={viewToggle} ToggleFunc={handleViewChange} />
           <div className="flex flex-col w-full max-w-[500px] px-3">
             <button
               onClick={toggleFullSizeImage}
-              className="h-[200px] min-h-[310px] mb-3.5 border-dark border-4 shadow-dark shadow-sm p-0 rounded-none"
+              className="h-[200px] min-h-[310px] mb-3.5 border-dark border-4 shadow-dark shadow-sm p-0 rounded-none relative"
             >
+              <Asterisk className="fill-dark w-5 absolute -left-3.5 top-20 " />
               <div className="h-full w-full">
                 <img
                   className="bg-salmon-alt object-cover object-center h-full w-full"
@@ -185,7 +197,12 @@ export default function Gallery() {
             </div>
             {viewToggle ? (
               <div className="w-full flex flex-col items-center mt-4">
-                <h2>Designer Notes</h2>
+                <h2>
+                  Designer Notes
+                  <span className="relative">
+                    <Threadline className="fill-dark w-36 absolute right-1 -bottom-1.5" />
+                  </span>
+                </h2>
                 <div className="bg-purple-alt p-2 h-36 w-full mt-2 border-dark border-4 shadow-dark shadow-sm overflow-auto">
                   <p className="">{curImage?.notes}</p>
                 </div>

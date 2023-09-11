@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import BackButton from "../components/BackButton";
 import cx from "classnames";
-import { Sparkles } from "../icons/Sparkles";
+import { Asterisks } from "../icons/Asterisks";
 import { Scribble } from "../icons/Scribble";
 import { ArrowSwirl } from "../icons/ArrowSwirl";
-import { Asterisk } from "../icons/Asterisk";
+import { StarsFull } from "../icons/StarsFull";
 import { Exclamation } from "../icons/Exclamation";
 import { Shine } from "../icons/Shine";
 
@@ -34,7 +34,6 @@ export default function Notepad() {
     e.preventDefault();
     if (notepadText) {
       // api call to post note
-      console.log("sent");
       setFormMessage({
         type: "success",
         message: "Nice, we got your note",
@@ -65,7 +64,7 @@ export default function Notepad() {
           <h1 className="text-center mb-6 ml-7 sm:ml-0">
             Notepad
             <span className="relative">
-              <Sparkles className="fill-dark w-12 absolute -right-16 -top-4" />
+              <Asterisks className="fill-dark w-11 absolute -right-14 -top-4 rotate-180" />
             </span>
           </h1>
           <BackButton />
@@ -100,7 +99,7 @@ export default function Notepad() {
               {formMessage?.message}
             </em>
             <div className="w-full mb-3 relative">
-              <Asterisk className="fill-dark w-5 absolute left-7 -top-4" />
+              <StarsFull className="fill-dark w-12 absolute left-7 -top-3 rotate-12" />
               <textarea
                 onChange={handleNoteChange}
                 defaultValue={notepadText}
