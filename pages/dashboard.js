@@ -72,7 +72,7 @@ export default function Dashboard() {
               onClick={() => push("/gallery")}
             >
               Snap it
-              <Shine className="pointer-events-none fill-dark w-9 absolute -top-7 -right-3 -rotate-12" />
+              <Shine className="pointer-events-none fill-dark w-9 absolute -top-7 -right-4 -rotate-12" />
             </button>
           </div>
           <Dots className="fill-dark w-9 absolute right-64" />
