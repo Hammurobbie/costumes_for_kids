@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import cx from "classnames";
 import Image from "next/image";
 import { Threadline } from "../icons/Threadline";
+import { Exclamation } from "../icons/Exclamation";
 
 const ImageUpload = ({ setUserImages, userImages }) => {
   const initGalleryMessage = {
@@ -24,11 +25,11 @@ const ImageUpload = ({ setUserImages, userImages }) => {
   const handleImageSubmit = () => {
     setGalleryMessage({
       type: "success",
-      message: "✨ We got your image! ✨",
+      message: "We got your image",
     });
     // setGalleryMessage({
     //   type: "error",
-    //   message: "😮 Oops! Please try uploading again 😮",
+    //   message: "Oops! Please try uploading again",
     // });
     setTimeout(() => {
       setGalleryMessage(initGalleryMessage);
@@ -84,11 +85,17 @@ const ImageUpload = ({ setUserImages, userImages }) => {
       />
       {galleryMessage?.message && !selectedImage ? (
         <em
-          className={cx("h-7 text-success mt-3 text-center", {
+          className={cx("h-7 text-success mt-3 text-center relative", {
             "opacity-0": !galleryMessage?.message,
             "text-error": galleryMessage?.type === "error",
           })}
         >
+          <Exclamation
+            className={`fill-${galleryMessage?.type} w-1 absolute -left-3 top-1`}
+          />
+          <Exclamation
+            className={`fill-${galleryMessage?.type} w-1 absolute -right-3 top-1`}
+          />
           {galleryMessage?.message}
         </em>
       ) : selectedImage ? (

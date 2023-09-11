@@ -87,14 +87,10 @@ export default function Notepad() {
               })}
             >
               <Exclamation
-                className={`fill-${
-                  formMessage?.type === "error" ? "error" : "success"
-                } w-1 absolute -left-2.5 top-1`}
+                className={`fill-${formMessage?.type} w-1 absolute -left-2.5 top-1`}
               />
               <Exclamation
-                className={`fill-${
-                  formMessage?.type === "error" ? "error" : "success"
-                } w-1 absolute -right-2.5 top-1`}
+                className={`fill-${formMessage?.type} w-1 absolute -right-2.5 top-1`}
               />
               {formMessage?.message}
             </em>
