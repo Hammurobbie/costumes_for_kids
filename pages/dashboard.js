@@ -65,7 +65,7 @@ export default function Dashboard() {
               onClick={() => push("/notepad")}
             >
               Write it
-              <Quote className="pointer-events-none fill-dark w-8 absolute -top-8 -left-3 -scale-x-[1] -rotate-12" />
+              <Quote className="pointer-events-none fill-dark w-8 absolute -top-8 -left-3 -scale-x-100 -rotate-12" />
             </button>
             <button
               className="h-20 w-full my-6 max-w-[600px] hover:bg-tangerine-alt focus:bg-tangerine-alt relative"

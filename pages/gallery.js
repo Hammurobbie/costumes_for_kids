@@ -4,6 +4,7 @@ import BackButton from "../components/BackButton";
 import ImageUpload from "../components/ImageUpload";
 import Toggle from "../components/Toggle";
 import cx from "classnames";
+import { ShineFull } from "../icons/ShineFull";
 
 const userMockImages = [
   {
@@ -132,9 +133,12 @@ export default function Gallery() {
           </div>
         </div>
         <section className="relative w-full flex flex-col items-center bg-salmon p-4 py-5 border-dark border-4 shadow-dark shadow-md">
-          <h1 className="mb-6 ml-1 sm:ml-0">{`${
-            viewToggle ? "Design" : "Your"
-          } Photos 📷`}</h1>
+          <h1 className="mb-6 ml-1 sm:ml-0">
+            {`${viewToggle ? "Design" : "Your"} Photos`}
+            <span className="relative">
+              <ShineFull className="fill-dark w-8 absolute -right-10 -top-0" />
+            </span>
+          </h1>
           <BackButton />
           <Toggle isToggled={viewToggle} setIsToggled={setViewToggle} />
           <div className="flex flex-col w-full max-w-[500px] px-3">

@@ -4,6 +4,7 @@ import BackButton from "./BackButton";
 import cx from "classnames";
 import { DarkStars } from "../icons/DarkStars";
 import { ZigZag } from "../icons/ZigZag";
+import { Exclamation } from "../icons/Exclamation";
 
 const canvasStyles = {
   border: "none",
@@ -23,11 +24,11 @@ const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
   const handleSave = () => {
     setGalleryMessage({
       type: "success",
-      message: "✨ We saved your sketch! ✨",
+      message: "We saved your sketch",
     });
     // setGalleryMessage({
     //   type: "error",
-    //   message: "😮 Oops! Please try uploading again 😮",
+    //   message: "Oops! Please try uploading again",
     // });
     setTimeout(() => {
       setGalleryMessage(initGalleryMessage);
@@ -45,11 +46,21 @@ const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
       </h1>
       <BackButton />
       <em
-        className={cx("h-7 text-success text-center", {
+        className={cx("h-7 text-success text-center relative", {
           "opacity-0": !galleryMessage?.message,
           "text-error": galleryMessage?.type === "error",
         })}
       >
+        <Exclamation
+          className={`fill-${
+            galleryMessage?.type === "error" ? "error" : "success"
+          } w-1 absolute left-14 top-1`}
+        />
+        <Exclamation
+          className={`fill-${
+            galleryMessage?.type === "error" ? "error" : "success"
+          } w-1 absolute right-14 top-1`}
+        />
         {galleryMessage?.message}
       </em>
       <div className=" mb-4 border-dark border-2 shadow-dark shadow-sm">
