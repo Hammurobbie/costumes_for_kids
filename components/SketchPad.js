@@ -52,7 +52,7 @@ const SketchPad = ({ curStrokeColor, curBgColor, curPenType }) => {
         })}
       >
         <Exclamation
-          className={`fill-${galleryMessage?.type} w-1 absolute left-14 top-1`}
+          className={`fill-${galleryMessage?.type} w-1 absolute left-12 top-1`}
         />
         <Exclamation
           className={`fill-${galleryMessage?.type} w-1 absolute right-12 top-1`}

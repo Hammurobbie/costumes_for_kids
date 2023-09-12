@@ -24,8 +24,8 @@ export default function Landing() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-col px-4 h-[90vh] justify-center items-center">
-        <section className="w-full h-2/3 max-w-2xl max-h-[600px] bg-salmon flex flex-col justify-center items-center p-4 py-5 border-dark border-4 shadow-dark shadow-md">
+      <main className="flex flex-col px-4 min-h-screen justify-center items-center">
+        <section className="w-full h-2/3 max-w-2xl h-[520px] bg-salmon flex flex-col justify-center items-center px-4 border-dark border-4 shadow-dark shadow-md">
           <div className="flex flex-col items-center relative">
             <Swirl className="fill-dark w-4 absolute left-0 -bottom-3" />
             <Stars className="fill-dark w-8 absolute -right-2 top-16 -rotate-12" />
